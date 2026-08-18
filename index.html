@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>お絵かきアプリ</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <h1 class="title">お絵かきアプリ</h1>
+      <p class="subtitle">マウスや指でキャンバスに自由に描けます</p>
+    </header>
+
+    <div class="toolbar">
+      <div class="tool-group">
+        <span class="tool-label">ツール</span>
+        <div class="segmented">
+          <button type="button" class="seg-btn is-active" data-tool="pen">ペン</button>
+          <button type="button" class="seg-btn" data-tool="eraser">消しゴム</button>
+        </div>
+      </div>
+
+      <div class="tool-group">
+        <label class="tool-label" for="color">色</label>
+        <input type="color" id="color" value="#2b2d42">
+        <div class="palette" id="palette">
+          <button type="button" class="swatch" style="--c:#2b2d42" data-color="#2b2d42" aria-label="濃紺"></button>
+          <button type="button" class="swatch" style="--c:#ef476f" data-color="#ef476f" aria-label="ピンク"></button>
+          <button type="button" class="swatch" style="--c:#ffd166" data-color="#ffd166" aria-label="イエロー"></button>
+          <button type="button" class="swatch" style="--c:#06d6a0" data-color="#06d6a0" aria-label="グリーン"></button>
+          <button type="button" class="swatch" style="--c:#118ab2" data-color="#118ab2" aria-label="ブルー"></button>
+          <button type="button" class="swatch" style="--c:#ffffff" data-color="#ffffff" aria-label="ホワイト"></button>
+        </div>
+      </div>
+
+      <div class="tool-group grow">
+        <label class="tool-label" for="size">太さ</label>
+        <input type="range" id="size" min="1" max="60" value="6">
+        <output class="size-value" id="sizeValue">6</output>
+        <span class="size-preview" id="sizePreview"></span>
+      </div>
+
+      <div class="tool-group">
+        <button type="button" class="btn" id="undo">元に戻す</button>
+        <button type="button" class="btn" id="redo">やり直す</button>
+        <button type="button" class="btn btn-danger" id="clear">全消去</button>
+        <button type="button" class="btn btn-primary" id="save">画像を保存</button>
+      </div>
+    </div>
+
+    <div class="canvas-wrap">
+      <canvas id="canvas" data-tool="pen"></canvas>
+    </div>
+
+    <footer class="hint">
+      ショートカット: <kbd>Ctrl</kbd>/<kbd>⌘</kbd> + <kbd>Z</kbd> で元に戻す、<kbd>Shift</kbd> を足すとやり直し
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
